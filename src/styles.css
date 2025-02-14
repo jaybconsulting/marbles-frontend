@@ -1,0 +1,107 @@
+html, body, :root {
+  --board-space-size: 20px;
+  --board-gap-size: 5px;
+
+  color-scheme: light dark;
+  font-family: 'Roboto', sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    background-color: #242424;
+    color: white;
+  }
+}
+
+.App {
+  text-align: center;
+}
+
+.game-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hand-area {
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  height: 100%;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(19, var(--board-space-size));
+  grid-template-rows: repeat(19, var(--board-space-size));
+  grid-gap: var(--board-gap-size);
+
+  height: 470px; /* change this to a formula: 19 * var(--board-space-size) + 18 * var(--board-gap-size) */ 
+  width: 470px;
+
+  /* add a circular border with padding*/
+  border-radius: 50%;
+  border: 1px solid black;
+  padding: 60px;
+
+  /* hide the direct background image */
+  background-image: url('./Images/light-wood-background.webp');
+}
+
+.start-game-area {
+  display: flex;
+}
+
+.start-game {
+  justify-content: center;
+}
+
+.board-space {
+  border-radius: 50%;
+  border: 1px solid black;
+  font-size: xx-small;
+  /* center the font */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.red {
+  /* make the background color a light red */
+  background-color: #ffcccc;
+}
+
+.blue {
+  background-color: #ccccff;
+}
+
+.green {
+  background-color: #ccffcc;
+}
+
+.yellow {
+  background-color: rgb(231, 231, 187);
+}
+
+.yellow-marble {
+  background-color: rgb(132, 132, 1);
+}
+
+.red-marble {
+  background-color: rgb(110, 4, 4);
+}
+
+.blue-marble {
+  background-color: rgb(0, 0, 113);
+}
+
+.green-marble {
+  background-color: rgb(3, 106, 3);
+}
+
+.enabled {
+  border: 2px solid yellow;
+}
