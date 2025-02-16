@@ -24,7 +24,7 @@ export default function GoogleLogin() {
         .then(response => {
             console.log(response);  
             login(response.data);
-            navigate('/dashboard');
+            navigate('/');
         })
         .catch(error => {
             console.log(error);

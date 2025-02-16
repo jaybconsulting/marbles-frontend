@@ -1,9 +1,7 @@
 import { Box, Center, Heading } from '@chakra-ui/react';
 import GoogleLogin from './GoogleLogin';
 
-export default function Home() {
-    
-
+export default function Login() {
 
   return (
     <Box
