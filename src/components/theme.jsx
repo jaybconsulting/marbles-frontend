@@ -15,6 +15,17 @@ const config = defineConfig({
                     muted: { 
                         value: { _light: "{colors.gray.100}", _dark: "{colors.gray.900}" },
                     },
+                    button: {
+                        value: { _light: "{colors.blue.500}", _dark: "{colors.blue.200}" },
+                    },
+                    buttonHover: {
+                        value: { _light: "{colors.blue.600}", _dark: "{colors.blue.300}" },
+                    },
+                },
+                text: {
+                    button: {
+                        value: { _light: "{colors.white}", _dark: "{colors.black}" },
+                    },
                 },
             },
         },
