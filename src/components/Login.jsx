@@ -17,9 +17,7 @@ export default function Login() {
                 flexDirection='column'
                 alignItems='space-between'
                 gap='1rem'
-                paddingLeft='2rem'
-                paddingRight='2rem'
-                paddingBottom='2rem'
+                padding='2rem'
             >
                 <Heading
                     style={{
@@ -33,6 +31,7 @@ export default function Login() {
                     display='flex'
                     justifyContent='center'
                     alignItems='center'
+                    mt='1rem'
                 >
                     <GoogleLogin />
                 </Box>

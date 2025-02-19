@@ -1,11 +1,11 @@
-import { useContext, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import { UserContext } from '../contexts/UserContext';
+import axios from '../api/axios';
+import { useAuth } from '../hooks/useAuth';
 
 export default function GoogleLogin() {
     let navigate = useNavigate();
-    const { login } = useContext(UserContext);
+    const { login } = useAuth();
 
     // TODO - why is the google button double loading?
     useEffect(() => {
@@ -16,13 +16,12 @@ export default function GoogleLogin() {
     }, []); 
 
     window.handleCredentialResponse = (response) => {
-        axios.post(`${import.meta.env.VITE_API_URL}/auth`, {
+        axios.post('/auth', {
             credential: response.credential
         }, {
             withCredentials: true
         })
         .then(response => {
-            console.log(response);  
             login(response.data);
             navigate('/');
         })

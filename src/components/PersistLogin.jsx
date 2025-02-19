@@ -1,11 +1,11 @@
-import { useContext, useEffect, useState } from 'react';
-import { UserContext } from '../contexts/UserContext';
+import { useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import useRefresh from '../hooks/useRefresh';
+import { useAuth } from '../hooks/useAuth';
 
 export default function PersistLogin() {
     const [isLoading, setIsLoading] = useState(true);
-    const { user } = useContext(UserContext);
+    const { user } = useAuth();
     const refresh = useRefresh();
 
     useEffect(() => {

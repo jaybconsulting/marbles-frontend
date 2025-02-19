@@ -1,9 +1,8 @@
-import { useContext } from 'react';
-import { UserContext } from '../contexts/UserContext';
 import { Outlet, Navigate } from 'react-router-dom';
+import { useAuth } from '../hooks/useAuth';
 
 export default function RequireAuth() {
-    const { user } = useContext(UserContext);
+    const { user } = useAuth();
 
     return (
         user?.accessToken ? 
