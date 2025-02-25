@@ -1,6 +1,6 @@
 import { Provider as ChakraProvider } from './components/ui/provider';
 import { UserProvider } from './contexts/UserProvider';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router';
 import Layout from './components/Layout';
 import Login from './components/Login';
 import PersistLogin from './components/PersistLogin';
