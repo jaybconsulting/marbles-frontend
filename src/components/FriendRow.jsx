@@ -1,15 +1,16 @@
 import PropTypes from 'prop-types';
 import { 
     Avatar,
-    Box,
-    Button,
+    Flex,
     Text,
 } from '@chakra-ui/react';
+import { useAuth } from '../hooks/useAuth';
 
-export default function FriendRow({friend}) {
+export default function FriendRow({friend, FriendButton}) {
+    const { user } = useAuth();
+
     return (
-        <Box
-            display="flex"
+        <Flex
             alignItems="center"
             p={3}
             width="100%"
@@ -27,14 +28,16 @@ export default function FriendRow({friend}) {
                     alt={`${friend.firstName}'s profile`}
                 />
             </Avatar.Root>
-            <Text flex="1">{friend.firstName} {friend.lastName}</Text>
-            <Button
-                colorScheme="blue"
-                size="sm"
+            <Text 
+                flex="1"
+                mr={4}
             >
-                Invite to a new game
-            </Button>
-        </Box>
+                {friend?.first_name} {friend?.last_name} {user?.id === friend?.id && '(me)'}
+            </Text>
+            <FriendButton 
+                friend={friend}
+            />
+        </Flex>
     );
 }
 
@@ -44,4 +47,5 @@ FriendRow.propTypes = {
         lastName: PropTypes.string.isRequired,
         picture: PropTypes.string,
     }).isRequired,
+    FriendButton: PropTypes.func.isRequired,
 };

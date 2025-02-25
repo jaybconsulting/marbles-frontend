@@ -1,13 +1,11 @@
-import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Heading, Text, VStack } from '@chakra-ui/react';
 import FriendRow from './FriendRow';
-import useAxiosPrivate from '../hooks/useAxiosPrivate';
 
-export default function FriendList({friends}) {
+export default function FriendList({friends, FriendButton}) {
     return (
         <Box
-            mt={8}
+            mt={4}
             mx={6}
             p={6}
             bg="bg.muted"
@@ -38,7 +36,11 @@ export default function FriendList({friends}) {
                 <VStack spacing={0} align="stretch">
                     {friends && friends.length > 0 ? (
                         friends.map((friend) => (
-                            <FriendRow key={friend.id} friend={friend} />
+                            <FriendRow 
+                                key={friend.id} 
+                                friend={friend} 
+                                FriendButton={FriendButton}
+                            />
                         ))
                     ) : (
                         <Text 
@@ -56,4 +58,5 @@ export default function FriendList({friends}) {
 
 FriendList.propTypes = {
     friends: PropTypes.array.isRequired,
+    FriendButton: PropTypes.func.isRequired,
 };

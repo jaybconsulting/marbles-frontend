@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { 
     Box, 
+    Button,
     Container, 
     Heading, 
     Stat, 
@@ -24,7 +25,6 @@ export default function Dashboard() {
         try {
             const response = await axiosPrivate.get('/stats');
             setStats(response.data);
-            console.log('Stats: ', response.data);
         } catch (error) {
             console.error('Error fetching stats: ', error);
         }
@@ -70,6 +70,16 @@ export default function Dashboard() {
         color: PropTypes.string.isRequired,
     };
 
+    const FriendButton = ({friend}) => {
+        return (
+            <Button
+                size="sm"
+            >
+                Invite to a new game
+            </Button>
+        )
+    }
+
     return (
         <Container maxW="container.xl" py={8}>
             <Heading 
@@ -92,7 +102,10 @@ export default function Dashboard() {
                 <StatBox label="Win Rate" value={stats.wins || stats.losses ? `${Math.round((stats.wins / (stats.wins + stats.losses)) * 100)}%` : '0%'} color="purple.500" />
             </Box>
 
-            <FriendList friends={friends} />
+            <FriendList 
+                friends={friends} 
+                FriendButton={FriendButton}
+            />
         </Container>
     );
 }
