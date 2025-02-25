@@ -21,11 +21,11 @@ export default function FriendRow({friend, FriendButton}) {
                 mr={4}
             >
                 <Avatar.Fallback
-                    name={`${friend.firstName} ${friend.lastName}`}
+                    name={`${friend?.first_name} ${friend?.last_name}`}
                 />
                 <Avatar.Image
-                    src={friend.picture}
-                    alt={`${friend.firstName}'s profile`}
+                    src={friend?.picture}
+                    alt={`${friend?.first_name}'s profile`}
                 />
             </Avatar.Root>
             <Text 
@@ -43,9 +43,10 @@ export default function FriendRow({friend, FriendButton}) {
 
 FriendRow.propTypes = {
     friend: PropTypes.shape({
-        firstName: PropTypes.string.isRequired,
-        lastName: PropTypes.string.isRequired,
+        first_name: PropTypes.string.isRequired,
+        last_name: PropTypes.string.isRequired,
         picture: PropTypes.string,
+        id: PropTypes.string.isRequired,
     }).isRequired,
     FriendButton: PropTypes.func.isRequired,
 };

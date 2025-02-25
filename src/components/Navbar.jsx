@@ -69,7 +69,7 @@ const Navbar = () => {
                   >
                     <Avatar.Root>
                       <Avatar.Image src={user?.picture} />
-                      <Avatar.Fallback name={`${user?.firstName} ${user?.lastName}`} />
+                      <Avatar.Fallback name={`${user?.first_name} ${user?.last_name}`} />
                     </Avatar.Root>
                   </Button>
                 </MenuTrigger>
