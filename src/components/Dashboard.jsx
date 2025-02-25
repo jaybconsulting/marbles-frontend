@@ -8,6 +8,7 @@ import {
 import PropTypes from 'prop-types';
 import useAxiosPrivate from '../hooks/useAxiosPrivate';
 import FriendList from './FriendList';
+import { sortFriends } from '../utils/friends';
 
 export default function Dashboard() {
     const axiosPrivate = useAxiosPrivate();
@@ -37,8 +38,7 @@ export default function Dashboard() {
         const fetchFriends = async () => {
             try {
                 const response = await axiosPrivate.get('/friends');
-                setFriends(response.data);
-                console.log('Friends: ', response.data);
+                setFriends(sortFriends(response.data));
             } catch (error) {
                 console.error('Error fetching friends: ', error);
             }
